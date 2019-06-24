@@ -10,36 +10,55 @@ define tom = Character("Tom Nook")
 define hazel = Character("Hazel")
 define doctor = Character("Doctor")
 
-# The game starts here.
 
 label start:
-
-    # Show a background. This uses a placeholder by default, but you can
-    # add a file (named either "bg room.png" or "bg room.jpg") to the
-    # images directory to show it.
-
     scene frontdesk
-
-    # This shows a character sprite. A placeholder is used, but you can
-    # replace it by adding a file named "eileen happy.png" to the images
-    # directory.
-
+    with fade
     show isabellehappy
-
-
-    # These display lines of dialogue.
-
     isabelle "Hello there, Welcome to our town! You are here for your meeting with the mayor right?"
-
+    "???""Yeah, that's me."
     isabelle "Can I please get the name for the meeting?"
-    python:
+    init python:
         name = renpy.input("Please enter your name")
     define player = Character("[name]")
-    isabelle "Okay, [name]... Oh yes, I see you on the list. You can head right in, the mayor is waiting for you"
-    "You walk to the mayor's office and you knock on the door"
-    "Knock Knock"
-    
+    isabelle "Okay, [name]... Oh yes, I see you on the list. You can head right in, the mayor is waiting for you."
+    "You walk to the mayor's office and you knock on the door."
+    "*Knock Knock*"
+    isabelle"Mr. Mayor? [name] is waiting for you!"
+    "You knock once more to try to get a response."
+    "*Knock Knock*"
     hide isabelle
-    # This ends the game.
-
-    return
+    jump invests
+label invests:
+    menu:
+        "Who should I talk to first?"
+        "Isabelle.":
+            jump isabelleinvest
+        "Kitty.":
+            jump kittyinvest
+        "Tom Nook.":
+            jump tomnookinvest
+        "Resetti.":
+            jump resettiinvest
+        "Hazel.":
+            jump hazelinvest
+        "The doctor.":
+            jump doctorinvest
+label isabelleinvest:
+    #insert thing here
+    jump invests
+label kittyinvest:
+    #insert thing here
+    jump invests
+label tomnookinvest:
+    #insert thing here
+    jump invests
+label resettiinvest:
+    #insert thing here
+    jump invests
+label hazelinvest:
+    #insert thing here
+    jump invests
+label doctorinvest:
+    #insert thing here
+    jump invests
